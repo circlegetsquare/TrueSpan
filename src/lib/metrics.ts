@@ -1,5 +1,5 @@
 import type { PlayerRaw } from '@/data/players'
-import { SCALE_FACTOR, MEAN_WS_GAP, K } from '@/lib/constants'
+import { SR_SCALE, WS_SCALE, SR_WEIGHT, WS_WEIGHT } from '@/lib/constants'
 
 export interface ComputedPlayer extends PlayerRaw {
   ht: number
@@ -7,8 +7,8 @@ export interface ComputedPlayer extends PlayerRaw {
   sr: number
   wsGap: number
   wsRatio: number
-  wsGapVsMean: number
-  wsAdj: number
+  thSR: number
+  thWS: number
   fh: number
   vsActual: number
   year?: number
@@ -40,14 +40,14 @@ export function toSignedInchesStr(inches: number): string {
 }
 
 export function computePlayer(p: PlayerRaw): ComputedPlayer {
-  const ht = parseInches(p.height)
-  const ws = parseInches(p.wingspan)
-  const sr = parseInches(p.standingReach)
-  const wsGap       = ws - ht
-  const wsRatio     = ws / ht
-  const wsGapVsMean = wsGap - MEAN_WS_GAP
-  const wsAdj       = K * wsGapVsMean
-  const fh          = (sr + wsAdj) / SCALE_FACTOR
-  const vsActual    = fh - ht
-  return { ...p, ht, ws, sr, wsGap, wsRatio, wsGapVsMean, wsAdj, fh, vsActual }
+  const ht      = parseInches(p.height)
+  const ws      = parseInches(p.wingspan)
+  const sr      = parseInches(p.standingReach)
+  const wsGap   = ws - ht
+  const wsRatio = ws / ht
+  const thSR    = sr / SR_SCALE
+  const thWS    = ws / WS_SCALE
+  const fh      = SR_WEIGHT * thSR + WS_WEIGHT * thWS
+  const vsActual = fh - ht
+  return { ...p, ht, ws, sr, wsGap, wsRatio, thSR, thWS, fh, vsActual }
 }

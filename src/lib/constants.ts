@@ -1,6 +1,9 @@
-export const SCALE_FACTOR = 1.3317  // mean(SR / Ht) across 1,121 players
-export const MEAN_WS_GAP  = 4.702   // mean(WS − Ht) across 1,121 players, inches
-export const K            = 0.5     // OLS-implied: β(wsGap→SR) = 0.532 across 1,121 players → pure wingspan term = 1 − 0.532 ≈ 0.47, rounded to 0.5
+// TrueHeight = SR_WEIGHT × (SR / SR_SCALE) + WS_WEIGHT × (WS / WS_SCALE)
+// Derived from 1,121 combine players, 2010–2026
+export const SR_SCALE  = 1.3317  // mean(standing reach / height)
+export const WS_SCALE  = 1.0606  // mean(wingspan / height)
+export const SR_WEIGHT = 0.75    // standing reach carries 75% of TrueHeight
+export const WS_WEIGHT = 0.25    // wingspan carries 25% of TrueHeight
 
 export const POS_COLORS: Record<string, string> = {
   PG: '#3b82f6',

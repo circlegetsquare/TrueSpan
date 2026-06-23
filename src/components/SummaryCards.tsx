@@ -11,9 +11,9 @@ function mean(nums: number[]) {
 }
 
 export function SummaryCards({ players }: SummaryCardsProps) {
-  const avgFh          = players.length ? mean(players.map(p => p.fh)) : 0
-  const avgHt          = players.length ? mean(players.map(p => p.ht)) : 0
-  const avgWsGapVsMean = players.length ? mean(players.map(p => p.wsGapVsMean)) : 0
+  const avgFh  = players.length ? mean(players.map(p => p.fh)) : 0
+  const avgHt  = players.length ? mean(players.map(p => p.ht)) : 0
+  const avgWsGapVsMean = players.length ? mean(players.map(p => p.wsGap)) - 4.702 : 0
 
   const countVal  = String(players.length)
   const wsGapVal  = players.length ? toSignedInchesStr(avgWsGapVsMean) : '—'

@@ -7,10 +7,9 @@ import { cn } from '@/lib/utils'
 type SortKey = 'rank' | 'name' | 'pos' | 'year' | 'ht' | 'ws' | 'sr' | 'wsGap' | 'wsRatio' | 'fh' | 'vsActual'
 type SortDir = 'asc' | 'desc'
 
-// WS−Ht / WS/Ht coloring: quartile-based (top 25% green, bottom 25% red)
-// p75 deviation = +1.55" → 6.25", p25 deviation = −1.45" → 3.25"
-const WS_GAP_GREEN = 6.25
-const WS_GAP_RED   = 3.25
+// WS−Ht coloring: >0.5" above mean (4.702") = green, >0.5" below = red
+const WS_GAP_GREEN = 5.2
+const WS_GAP_RED   = 4.2
 
 function wsGapColor(wsGap: number) {
   if (wsGap > WS_GAP_GREEN) return 'text-green-600'
@@ -126,10 +125,10 @@ export function ProspectTable({ players, showYear = false, hoveredPlayer, onHove
               <Th sortKey="ht"   {...thProps} className="w-24" title="Measured height without shoes">Height</Th>
               <Th sortKey="ws"   {...thProps} className="w-24" title="Wingspan: fingertip to fingertip with arms outstretched">Wingspan</Th>
               <Th sortKey="sr"   {...thProps} className="w-32" title="Standing reach: height of fingertips with arm raised, feet flat on the floor">Standing Reach</Th>
-              <Th sortKey="wsGap"    {...thProps} className="w-20" title={'Wingspan minus height. The NBA draft combine average is ~4.7″. Higher values indicate a physical advantage beyond height alone.'}>WS−Ht</Th>
-              <Th sortKey="wsRatio"  {...thProps} className="w-20" title="Wingspan-to-height ratio. Values above 100% mean the player's reach exceeds their standing height.">WS/Ht</Th>
               <Th sortKey="fh"       {...thProps} className="w-28" title="TrueHeight: the effective size a player occupies on the court, derived from standing reach and wingspan. The core metric of this tool.">TrueHeight</Th>
               <Th sortKey="vsActual" {...thProps} className="w-24" title="True Size minus actual height. How much larger or smaller a player plays relative to their listed height.">vs. Actual</Th>
+              <Th sortKey="wsGap"    {...thProps} className="w-20" title={'Wingspan minus height. The NBA draft combine average is ~4.7″. Higher values indicate a physical advantage beyond height alone.'}>WS−Ht</Th>
+              <Th sortKey="wsRatio"  {...thProps} className="w-20" title="Wingspan-to-height ratio. Values above 100% mean the player's reach exceeds their standing height.">WS/Ht</Th>
             </tr>
           </thead>
           <tbody>
@@ -155,17 +154,17 @@ export function ProspectTable({ players, showYear = false, hoveredPlayer, onHove
                 <td className="px-3 py-2 text-right text-gray-400 tabular-nums">{toHeightStr(p.ht)}</td>
                 <td className="px-3 py-2 text-right text-gray-400 tabular-nums">{toHeightStr(p.ws)}</td>
                 <td className="px-3 py-2 text-right text-gray-400 tabular-nums">{toHeightStr(p.sr)}</td>
-                <td className={cn('px-3 py-2 text-right tabular-nums font-medium', wsGapColor(p.wsGap))}>
-                  {toSignedHeightStr(p.wsGap)}
-                </td>
-                <td className={cn('px-3 py-2 text-right tabular-nums font-medium', wsGapColor(p.wsGap))}>
-                  {(p.wsRatio * 100).toFixed(1)}%
-                </td>
                 <td className="px-3 py-2 text-right font-semibold text-accent tabular-nums">
                   {toHeightStr(p.fh)}
                 </td>
                 <td className={cn('px-3 py-2 text-right tabular-nums font-medium', vsActualColor(p.vsActual))}>
                   {toSignedHeightStr(p.vsActual)}
+                </td>
+                <td className={cn('px-3 py-2 text-right tabular-nums font-medium', wsGapColor(p.wsGap))}>
+                  {toSignedHeightStr(p.wsGap)}
+                </td>
+                <td className={cn('px-3 py-2 text-right tabular-nums font-medium', wsGapColor(p.wsGap))}>
+                  {(p.wsRatio * 100).toFixed(1)}%
                 </td>
               </tr>
             ))}
@@ -173,7 +172,7 @@ export function ProspectTable({ players, showYear = false, hoveredPlayer, onHove
         </table>
       </div>
       <p className="mx-6 mb-6 text-xs text-gray-400">
-        Based on 1,121 players, 2010–2026 NBA Draft Combines
+        TrueHeight = 75% standing reach + 25% wingspan, each converted to a height-equivalent scale. SR scale: 1.3317 · WS scale: 1.0606 · Based on 1,121 players, 2010–2026 NBA Draft Combines.
       </p>
     </>
   )
