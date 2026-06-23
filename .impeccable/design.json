@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-31T00:00:00.000Z",
+  "title": "Design System: True Size",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Combine Blue",
+        "canonical": "oklch(0.488 0.243 264.4)",
+        "tonalRamp": [
+          "oklch(0.20 0.18 264)",
+          "oklch(0.28 0.21 264)",
+          "oklch(0.35 0.23 264)",
+          "oklch(0.42 0.24 264)",
+          "oklch(0.488 0.243 264)",
+          "oklch(0.60 0.22 264)",
+          "oklch(0.72 0.18 264)",
+          "oklch(0.88 0.10 264)"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Near-White Canvas",
+        "canonical": "oklch(0.979 0.002 264)",
+        "tonalRamp": [
+          "oklch(0.20 0.01 264)",
+          "oklch(0.32 0.01 264)",
+          "oklch(0.46 0.01 264)",
+          "oklch(0.60 0.005 264)",
+          "oklch(0.72 0.004 264)",
+          "oklch(0.85 0.003 264)",
+          "oklch(0.93 0.002 264)",
+          "oklch(0.979 0.002 264)"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Panel Surface",
+        "canonical": "oklch(1.0 0 0)",
+        "tonalRamp": [
+          "oklch(0.20 0 0)",
+          "oklch(0.32 0 0)",
+          "oklch(0.46 0 0)",
+          "oklch(0.60 0 0)",
+          "oklch(0.72 0 0)",
+          "oklch(0.86 0 0)",
+          "oklch(0.95 0 0)",
+          "oklch(1.0 0 0)"
+        ]
+      },
+      "neutral-ink": {
+        "role": "neutral",
+        "displayName": "Combine Black",
+        "canonical": "oklch(0.208 0.018 264)",
+        "tonalRamp": [
+          "oklch(0.10 0.02 264)",
+          "oklch(0.208 0.018 264)",
+          "oklch(0.32 0.016 264)",
+          "oklch(0.44 0.014 264)",
+          "oklch(0.56 0.010 264)",
+          "oklch(0.68 0.007 264)",
+          "oklch(0.80 0.005 264)",
+          "oklch(0.93 0.003 264)"
+        ]
+      },
+      "neutral-divider": {
+        "role": "neutral",
+        "displayName": "Structural Border",
+        "canonical": "oklch(0.917 0.004 264)",
+        "tonalRamp": [
+          "oklch(0.30 0.01 264)",
+          "oklch(0.44 0.008 264)",
+          "oklch(0.57 0.006 264)",
+          "oklch(0.68 0.005 264)",
+          "oklch(0.78 0.005 264)",
+          "oklch(0.86 0.004 264)",
+          "oklch(0.917 0.004 264)",
+          "oklch(0.960 0.002 264)"
+        ]
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Muted Label",
+        "canonical": "oklch(0.668 0.007 264)",
+        "tonalRamp": [
+          "oklch(0.20 0.01 264)",
+          "oklch(0.32 0.009 264)",
+          "oklch(0.44 0.008 264)",
+          "oklch(0.56 0.008 264)",
+          "oklch(0.668 0.007 264)",
+          "oklch(0.76 0.006 264)",
+          "oklch(0.85 0.004 264)",
+          "oklch(0.93 0.003 264)"
+        ]
+      },
+      "semantic-positive": {
+        "role": "tertiary",
+        "displayName": "Wingspan Positive",
+        "canonical": "oklch(0.527 0.154 145)",
+        "tonalRamp": [
+          "oklch(0.20 0.10 145)",
+          "oklch(0.29 0.12 145)",
+          "oklch(0.38 0.14 145)",
+          "oklch(0.45 0.15 145)",
+          "oklch(0.527 0.154 145)",
+          "oklch(0.63 0.14 145)",
+          "oklch(0.74 0.12 145)",
+          "oklch(0.88 0.07 145)"
+        ]
+      },
+      "semantic-negative": {
+        "role": "tertiary",
+        "displayName": "Wingspan Negative",
+        "canonical": "oklch(0.628 0.258 29.2)",
+        "tonalRamp": [
+          "oklch(0.22 0.16 29)",
+          "oklch(0.30 0.19 29)",
+          "oklch(0.39 0.22 29)",
+          "oklch(0.50 0.25 29)",
+          "oklch(0.628 0.258 29)",
+          "oklch(0.72 0.22 29)",
+          "oklch(0.82 0.16 29)",
+          "oklch(0.92 0.08 29)"
+        ]
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Cards and chart containers at rest. Detaches the surface from the background without lifting it."
+      },
+      {
+        "name": "floating",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Data tooltip only. The sole floating element above the page plane."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "150ms ease-out",
+        "purpose": "Default for color state transitions (toggle active/inactive, row hover). Should feel immediate."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Filter Toggle (Active)",
+      "kind": "button",
+      "refersTo": "toggle-active",
+      "description": "Selected position or year filter. Blue-600 background, white text. The only use of the primary accent on interactive controls.",
+      "html": "<button class=\"ds-toggle-active\">PG</button>",
+      "css": ".ds-toggle-active { display: inline-flex; align-items: center; justify-content: center; padding: 4px 12px; background-color: #2563eb; color: #ffffff; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 500; border-radius: 4px; border: none; cursor: pointer; transition: background-color 150ms ease-out; } .ds-toggle-active:hover { background-color: #1d4ed8; } .ds-toggle-active:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Toggle (Inactive)",
+      "kind": "button",
+      "refersTo": "toggle-inactive",
+      "description": "Unselected position or year filter. Muted background, low visual weight. Activates on click.",
+      "html": "<button class=\"ds-toggle-inactive\">SG</button>",
+      "css": ".ds-toggle-inactive { display: inline-flex; align-items: center; justify-content: center; padding: 4px 12px; background-color: #f3f4f6; color: #4b5563; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 500; border-radius: 4px; border: none; cursor: pointer; transition: background-color 150ms ease-out; } .ds-toggle-inactive:hover { background-color: #e5e7eb; } .ds-toggle-inactive:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }"
+    },
+    {
+      "name": "Summary Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Single-metric summary tile. Label over value. Used in the 4-across grid above the chart. No icon, no decoration — the number is the card.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-label\">Avg True Size</p><p class=\"ds-card-value\">6'8¾\"</p></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .ds-card-label { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; } .ds-card-value { margin: 4px 0 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.2; color: #111827; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Table Header Cell",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Sticky column header with sort affordance. Uppercase tracked label, sort arrow indicator. Active sort shifts text to ink.",
+      "html": "<th class=\"ds-th ds-th--active\">True Size <span class=\"ds-sort\">↓</span></th>",
+      "css": ".ds-th { position: sticky; top: 0; z-index: 10; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 8px 12px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; text-align: right; white-space: nowrap; cursor: pointer; user-select: none; transition: background-color 150ms ease-out; } .ds-th:hover { background-color: #f3f4f6; } .ds-th--active { color: #111827; } .ds-sort { margin-left: 4px; }"
+    },
+    {
+      "name": "Table Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Data row. Hairline bottom border. Hover tints the entire row with the primary accent at low opacity — the only row-level use of blue.",
+      "html": "<tr class=\"ds-row\"><td class=\"ds-td ds-td--name\">Victor Wembanyama</td><td class=\"ds-td ds-td--true-size\">7'5¼\"</td><td class=\"ds-td ds-td--signal ds-td--positive\">+4.1\"</td></tr>",
+      "css": ".ds-row { border-bottom: 1px solid #f3f4f6; transition: background-color 150ms ease-out; } .ds-row:hover { background-color: rgba(239, 246, 255, 0.4); } .ds-td { padding: 8px 12px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; text-align: right; } .ds-td--name { text-align: left; font-weight: 500; color: #111827; } .ds-td--true-size { font-weight: 600; color: #2563eb; font-variant-numeric: tabular-nums; } .ds-td--signal { font-weight: 500; color: #9ca3af; font-variant-numeric: tabular-nums; } .ds-td--positive { color: #16a34a; } .ds-td--negative { color: #ef4444; }"
+    },
+    {
+      "name": "Data Tooltip",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Hover tooltip on scatter plot dots. Floating surface — the only shadow-lg element in the system. Structured identically to the table: label left, value right, tabular-nums throughout.",
+      "html": "<div class=\"ds-tooltip\"><div class=\"ds-tooltip-name\">Victor Wembanyama</div><div class=\"ds-tooltip-pos\">C</div><div class=\"ds-tooltip-rows\"><div class=\"ds-tooltip-row\"><span>Height</span><span class=\"ds-tooltip-val\">7'4\"</span></div><div class=\"ds-tooltip-row\"><span>Wingspan</span><span class=\"ds-tooltip-val\">8'0\"</span></div><div class=\"ds-tooltip-row ds-tooltip-row--accent\"><span>True Size</span><span class=\"ds-tooltip-val ds-tooltip-val--accent\">7'5¼\"</span></div></div></div>",
+      "css": ".ds-tooltip { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 12px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; line-height: 1.5; min-width: 160px; } .ds-tooltip-name { font-size: 14px; font-weight: 600; color: #111827; margin-bottom: 2px; } .ds-tooltip-pos { color: #9ca3af; margin-bottom: 8px; } .ds-tooltip-row { display: flex; justify-content: space-between; gap: 24px; } .ds-tooltip-row--accent { border-top: 1px solid #f3f4f6; padding-top: 4px; margin-top: 4px; } .ds-tooltip-val { font-variant-numeric: tabular-nums; } .ds-tooltip-val--accent { font-weight: 600; color: #2563eb; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Combine Floor",
+    "overview": "The combine floor is a room of pure measurement. No performance, no narrative — just bodies in space and numbers that tell the truth. True Size's design system carries that same discipline into every screen: dense but legible, exact without being cold, functional without being bare.\n\nEverything the interface shows is load-bearing. The gray hierarchy exists to let numbers register at a glance. The single blue accent marks exactly one thing — the metric this tool was built around. Components don't animate to show off; state changes are immediate and legible. The tool should disappear into the task of understanding a prospect's physical profile.\n\nThis system explicitly rejects the aesthetic of its category's worst reflexes: the red-and-black energy of ESPN, the navy-and-bar-chart of enterprise SaaS dashboards, the gamified badge-and-leaderboard rhythm of fantasy apps. Those surfaces shout to be noticed. This one assumes the user already knows what they're looking for.",
+    "keyCharacteristics": [
+      "Restrained single-accent palette — blue-600 used only as a functional indicator, never decoration",
+      "Fixed rem typography scale — product UI consistency, no fluid headings",
+      "Dense information layout — tabular data at full width, compact row height, no padding theater",
+      "Flat surfaces with structural borders — depth through tonal layers, not shadows",
+      "Semantic color reserved for data signals — green/red for quartile thresholds only"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Blue-600 is the only true accent. It appears on ≤15% of any given screen. A second accent color is prohibited — it would split the visual priority system that makes True Size values instantly identifiable.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Firewall Rule",
+        "body": "Green (#16a34a) and red (#ef4444) appear only as quartile signal colors on wingspan gap and vs. actual columns. Never applied to UI state, decorative highlights, or success/error messaging.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Invariant Rule",
+        "body": "Every number displayed in a data context — table cells, card values, tooltip measurements — uses font-variant-numeric: tabular-nums. No exceptions. Columns that don't align are broken.",
+        "section": "typography"
+      },
+      {
+        "name": "The Label Ceiling Rule",
+        "body": "Uppercase tracking is reserved for short categorical labels (≤4 words). Never applied to sentences, player names, or any prose copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Plane Rule",
+        "body": "Borders and tonal steps handle structural separation. Shadow appears on two surfaces only: cards at rest (resting) and the data tooltip (floating). Adding shadow to anything else means the structure is wrong — fix the layout instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use #2563eb as the sole accent — active toggles, True Size values, and row hover tint only.",
+      "Do apply tabular-nums to every numeric value in a data context, without exception.",
+      "Do use uppercase tracked labels for categorical labels of ≤4 words. Nothing longer.",
+      "Do use #e5e7eb as the single structural border token across the entire surface.",
+      "Do keep elevation flat — resting shadow on cards, floating shadow on the tooltip, nothing else.",
+      "Do use #16a34a and #ef4444 strictly for quartile signal columns.",
+      "Do right-align all numeric columns. Left-align player names only.",
+      "Do keep transitions to transition-colors at 150ms. State changes should feel immediate, not choreographed."
+    ],
+    "donts": [
+      "Don't introduce a second accent color. The One Accent Rule is what makes True Size values visually unambiguous at a glance.",
+      "Don't use green or red for UI state, decorative highlights, or success/error messages. The Semantic Firewall Rule is absolute.",
+      "Don't import a display or custom typeface for UI labels, buttons, or table headers.",
+      "Don't add shadows beyond the resting card shadow and the floating tooltip shadow.",
+      "Don't apply uppercase tracking to body copy, player names, or text longer than 4 words.",
+      "Don't use border-left greater than 1px as a colored accent stripe on cards or list items.",
+      "Don't use gradient text (background-clip: text with a gradient). Ever.",
+      "Don't introduce glassmorphism, hero-metric templates, or identical card grids.",
+      "Don't build toward ESPN — loud colors, score-ticker energy, red-and-black aggression.",
+      "Don't gamify. No badges, no leaderboards, no achievement states. The data is the reward."
+    ]
+  }
+}
