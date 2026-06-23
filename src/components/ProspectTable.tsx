@@ -172,7 +172,7 @@ export function ProspectTable({ players, showYear = false, hoveredPlayer, onHove
         </table>
       </div>
       <p className="mx-6 mb-6 text-xs text-gray-400">
-        TrueHeight = 75% standing reach + 25% wingspan, each converted to a height-equivalent scale. SR scale: 1.3317 · WS scale: 1.0606 · Based on 1,121 players, 2010–2026 NBA Draft Combines.
+        Based on 1,121 players, 2010–2026 NBA Draft Combines. Wemby's data added manually.
       </p>
     </>
   )
